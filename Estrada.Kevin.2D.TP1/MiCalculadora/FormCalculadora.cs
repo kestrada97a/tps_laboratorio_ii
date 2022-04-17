@@ -37,6 +37,10 @@ namespace MiCalculadora
             
             lblResultado.Text = Operar(txtNumero1.Text, txtNumero2.Text, cmbOperador.Text).ToString();
             string auxiliar = txtNumero1.Text + cmbOperador.Text + txtNumero2.Text + "=" + lblResultado.Text;
+            if(cmbOperador.Text==" ")
+            {
+                auxiliar = txtNumero1.Text + "+" + txtNumero2.Text + "=" + lblResultado.Text;
+            }
             lstOperaciones.Items.Add(auxiliar);
             
 
