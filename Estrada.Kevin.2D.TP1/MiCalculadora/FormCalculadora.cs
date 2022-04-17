@@ -85,6 +85,8 @@ namespace MiCalculadora
             txtNumero1.Clear();
             txtNumero2.Clear();
             lblResultado.Text = "0";
+            cmbOperador.Text = " ";
+            
         }
 
         private void FormCalculadora_FormClosing(object sender, FormClosingEventArgs e)
