@@ -66,7 +66,7 @@ namespace MiCalculadora
 
         private void txtNumero1_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if(char.IsNumber(e.KeyChar) || e.KeyChar ==',')
+            if(char.IsNumber(e.KeyChar) || e.KeyChar ==',' || e.KeyChar == '-')
             {
 
             }
