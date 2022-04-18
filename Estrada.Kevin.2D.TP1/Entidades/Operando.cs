@@ -15,12 +15,18 @@ namespace Entidades
         {
             this.numero = numero;
         }
-
+        
         public Operando(string numero)
         {
-            double.TryParse(numero, out this.numero);
+            
+            this.Numero = numero;
         }
 
+        /// <summary>
+        /// comprueba que el parametro sea numerico
+        /// </summary>
+        /// <param name="strNumero"></param>
+        /// <returns> el valor del parametro </returns>
         public double ValidarOperando(string strNumero)
         {
             bool isNumeric = double.TryParse(strNumero, out double numero);
@@ -40,7 +46,11 @@ namespace Entidades
                 numero = auxiliarValue;
             }
         }
-
+        /// <summary>
+        /// devuelve true si el parametro es un binario y false si no lo es
+        /// </summary>
+        /// <param name="binario"></param>
+        /// <returns Bool ></returns>
         private static bool EsBinario(string binario)
         {
 
@@ -54,6 +64,11 @@ namespace Entidades
             return true;
         }
 
+        /// <summary>
+        /// convierte el parametro a un numero decimal
+        /// </summary>
+        /// <param name="binario"></param>
+        /// <returns> el valor del parametro convertido a decimal </returns>
         public static string BinarioDecimal(string binario)
         {
             bool controlBinario = EsBinario(binario);
@@ -77,6 +92,11 @@ namespace Entidades
             return "Valor invalido";
         }
 
+        /// <summary>
+        /// convierte el parametro (double) a un numero binario
+        /// </summary>
+        /// <param name="numeroEntero"></param>
+        /// <returns>el valor convertido a binario</returns>
         public static string DecimalBinario(double numeroEntero)
         {
             string binario = "";
@@ -95,7 +115,12 @@ namespace Entidades
             }
             return "Valor invalido";
         }
-
+        
+        /// <summary>
+        /// convierte el parametro (string) a un numero binario 
+        /// </summary>
+        /// <param name="numeroEntero"></param>
+        /// <returns>el valor convertido a binario</returns>
         public static string DecimalBinario(string numeroEntero)
         {
             double.TryParse(numeroEntero, out double auxiliar);

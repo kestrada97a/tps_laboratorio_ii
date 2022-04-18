@@ -137,11 +137,12 @@
             // lblResultado
             // 
             this.lblResultado.AutoSize = true;
-            this.lblResultado.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblResultado.Location = new System.Drawing.Point(136, 11);
+            this.lblResultado.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblResultado.Location = new System.Drawing.Point(216, 24);
             this.lblResultado.Name = "lblResultado";
-            this.lblResultado.Size = new System.Drawing.Size(0, 28);
+            this.lblResultado.Size = new System.Drawing.Size(0, 21);
             this.lblResultado.TabIndex = 11;
+            this.lblResultado.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
             // contextMenuStrip1
             // 

@@ -20,6 +20,11 @@ namespace MiCalculadora
 
         }
 
+        /// <summary>
+        /// carga los valores que van a ester en el combobox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FormCalculadora_Load(object sender, EventArgs e)
         {
             char[] array = {' ', '+', '-', '*', '/' };
@@ -27,11 +32,12 @@ namespace MiCalculadora
 
         }
 
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
 
-        }
-
+        /// <summary>
+        /// refleja el resultado q recibio como parametro en el label text
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnOperar_Click(object sender, EventArgs e)
         {
             
@@ -47,12 +53,23 @@ namespace MiCalculadora
             
             
         }
-
+        /// <summary>
+        /// utiliza el limpiar() y limpia al presionar el boton
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             limpiar();
         }
 
+        /// <summary>
+        /// realiza las operaciones matematicas entre los parametros
+        /// </summary>
+        /// <param name="numero1"></param>
+        /// <param name="numero2"></param>
+        /// <param name="operador"></param>
+        /// <returns> el resultado de las operaciones</returns>
         private static double Operar(string numero1, string numero2, string operador)
         {
             Operando num1 = new Operando(numero1);
@@ -63,11 +80,21 @@ namespace MiCalculadora
 
         }
 
+        /// <summary>
+        /// cierra el formulario
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
+        /// <summary>
+        /// evita que se escriban letras o caracteres no permitidos
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtNumero1_KeyPress(object sender, KeyPressEventArgs e)
         {
             if(char.IsNumber(e.KeyChar) || e.KeyChar ==',' || e.KeyChar == '-')
@@ -79,7 +106,9 @@ namespace MiCalculadora
                 e.Handled = e.KeyChar != (char)Keys.Back;
             }
         }
-
+        /// <summary>
+        /// Borra los valores de los texts, label y del combobox
+        /// </summary>
         private void limpiar()
         {
             txtNumero1.Clear();
@@ -89,6 +118,11 @@ namespace MiCalculadora
             
         }
 
+        /// <summary>
+        /// pregunta si esta seguro que desea cerrar el formulario
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FormCalculadora_FormClosing(object sender, FormClosingEventArgs e)
         {
             
@@ -103,12 +137,22 @@ namespace MiCalculadora
             }
         }
 
+        /// <summary>
+        /// muestra el valor resultado de la operacion hecha convertido a binario
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnConvertirABinario_Click(object sender, EventArgs e)
         {
             
             lblResultado.Text = Operando.DecimalBinario(lblResultado.Text);
         }
 
+        /// <summary>
+        /// muestra el valor resultado de la operacion hecha convertido a decimal
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnConvertirADecimal_Click(object sender, EventArgs e)
         {
 
