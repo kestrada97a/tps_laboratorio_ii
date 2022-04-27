@@ -6,20 +6,19 @@ namespace Entidades
     {
 
         private double numero;
-        public Operando()
+        public Operando() :this(0)
         {
-            numero = 0;
         }
 
-        public Operando(double numero)
-        {
-            this.numero = numero;
-        }
-        
-        public Operando(string numero)
+        public Operando(double numero) : this(numero.ToString())
         {
             
-            this.Numero = numero;
+        }
+
+        public Operando(string numero) 
+        {
+
+            Numero = numero;
         }
 
         /// <summary>
@@ -29,13 +28,14 @@ namespace Entidades
         /// <returns> el valor del parametro </returns>
         public double ValidarOperando(string strNumero)
         {
-            bool isNumeric = double.TryParse(strNumero, out double numero);
-            if (isNumeric == true)
+            
+            if (double.TryParse(strNumero, out double numero))
             {
                 return numero;
             }
-            else
-            { return 0; }
+            return 0;
+
+
         }
 
         public string Numero
@@ -100,22 +100,29 @@ namespace Entidades
         public static string DecimalBinario(double numeroEntero)
         {
             string binario = "";
-            int auxiliar = Math.Abs((int)numeroEntero);
 
-            if (auxiliar > 0)
+            if (numeroEntero != Double.MinValue)
             {
-                while (auxiliar > 0)
+                int auxiliar = Math.Abs((int)numeroEntero);
+                if (auxiliar > 0)
                 {
-                    binario = auxiliar % 2 + binario;
+                    while (auxiliar > 0)
+                    {
+                        binario = auxiliar % 2 + binario;
 
-                    auxiliar = auxiliar / 2;
+                        auxiliar = auxiliar / 2;
+                    }
+
+                    return binario;
                 }
-
-                return binario;
             }
+
+
+
+
             return "Valor invalido";
         }
-        
+
         /// <summary>
         /// convierte el parametro (string) a un numero binario 
         /// </summary>
